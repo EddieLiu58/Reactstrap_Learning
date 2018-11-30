@@ -1,24 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
 
-const render = () => {
-  const Main = require('containers').default;
+export default class Main extends Component {
+  render() {
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <h2>Hello, I`m ReactMaker.</h2>
+        <p>To get started, edit containers/index.js</p>
+         <Button color="danger">Danger!</Button>
+      </div>
 
-  ReactDOM.render(
-    <AppContainer>
-      <Main />
-    </AppContainer>,
-    document.getElementById('app')
-  );
-};
-
-render();
-
-// migrate by this guide
-// https://github.com/gaearon/react-hot-loader/tree/master/docs#migration-to-30
-if (module.hot) {
-  module.hot.accept('containers/', () => {
-    render();
-  });
+    );
+  }
 }
