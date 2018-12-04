@@ -1,0 +1,82 @@
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../stylesheets/helpers/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://images.unsplash.com/photo-1543575590-64f1e1d06f3f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1982&q=80);
+  background-repeat: no-repeat;
+}
+.custom-card {
+  background-color: rgba(black, 0.1); //毛玻璃-黑
+  border: none;
+  position: relative; //定位
+  box-shadow: 3px 15px 35px rgba(black , 65); //毛玻璃陰影
+  border-radius: 10px;
+  min-height: 50%;
+}
+.card-bg {
+     overflow: hidden;
+  position: absolute; //定位
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
+border-radius: 5px;
+&:after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    bottom: -20px;
+    right: -20px;
+    filter: blur(13px); //模糊
+    background-image: url(https://images.unsplash.com/photo-1543575590-64f1e1d06f3f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1982&q=80);
+    background-attachment: fixed; //背景定位
+    background-repeat: no-repeat;
+  }}
+//圓角處理
+.border-radius {
+  border-radius: 50px;
+  //border-radius: 50%; 陷阱,會變形
+}
+
+$pink: #fe6cb9;
+$blue: #6cdafe;
+$purple: #9c70ff;
+
+$size: 80px;
+$border-width: 15px;
+
+.rectangle .circle .triangle {
+  display: block;
+}
+.rectangle {
+  width: $size;
+  height: $size;
+  border: $border-width solid $purple;
+  filter: drop-shadow(3px 3px 25px $purple);
+  position: absolute;
+}
+.circle {
+  width: $size;
+  height: $size;
+  border: $border-width solid $blue;
+  border-radius: 100%;
+  filter: drop-shadow(3px 3px 25px $blue);
+  position: absolute;
+}
+.triangle {
+  .triangle-polygon {
+    fill: transparent;
+    stroke: $pink;
+    stroke-width: $border-width;
+  }
+  position: absolute;
+  filter: drop-shadow(5px 5px 10px $pink);
+}
